@@ -37,5 +37,5 @@ app.kubernetes.io/instance: {{ .Release.Name | quote }}
     Namespace of resources
 */}}
 {{- define "namespace" -}}
-{{- .Release.Name | replace "." "-" | trunc 47 | trimSuffix "-" -}}
+{{- .Release.Namespace -}}
 {{- end -}}

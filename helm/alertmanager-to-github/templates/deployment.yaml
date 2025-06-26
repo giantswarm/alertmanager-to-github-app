@@ -38,5 +38,5 @@ spec:
           resources:
             {{- toYaml .Values.container.resources | nindent 12 }}
           securityContext:
-            {{- toYaml .Values.pod.securityContext | nindent 12 }}
+            {{- toYaml .Values.container.securityContext | nindent 12 }}
           
