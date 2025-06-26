@@ -6,7 +6,16 @@
 #   https://docs.giantswarm.io/tutorials/fleet-management/app-platform/app-configuration/#basic-values-merging-example
 #
 image:
-  name: "giantswarm/alertmanager-to-github"
-  tag: ""
-registry:
-  domain: gsoci.azurecr.io
+  repository: "giantswarm/alertmanager-to-github"
+  tag: "v0.1.0"
+  registry: "gsoci.azurecr.io"
+env:
+  ATG_GITHUB_TOKEN: ""
+service: 
+  port: 8080
+pod:
+  securityContext:
+    runAsNonRoot: true
+    runAsUser: 65534
+    seccompProfile:
+      type: RuntimeDefault
