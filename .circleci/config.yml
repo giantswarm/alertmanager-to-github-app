@@ -14,13 +14,12 @@ workflows:
         chart: alertmanager-to-github
     - architect/push-to-app-collection:
         context: architect
-        executor: app-build-suite
         name: alertmanager-to-github-app-collection
         app_name: alertmanager-to-github
         app_namespace: "alertmanager-to-github"
         app_collection_repo: "alertmanager-to-github-app-collection"
         requires:
-          - "package-and-push-chart"
+          - package-and-push-chart
         filters:
           branches:
             ignore: /.*/
