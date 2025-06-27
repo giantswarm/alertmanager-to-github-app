@@ -21,6 +21,7 @@ spec:
         - name: {{ include "name" . }}
           image: "{{ .Values.image.registry }}/{{ .Values.image.repository }}:{{ .Values.image.tag }}"
           args:
+          - start
           - --listen
           - "0.0.0.0:{{ .Values.service.port }}"
           envFrom:
