@@ -11,7 +11,7 @@ image:
   registry: "gsoci.azurecr.io"
 env:
   ATG_GITHUB_TOKEN: ""
-service: 
+service:
   port: 8080
 pod:
   securityContext:
