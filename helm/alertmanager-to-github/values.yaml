@@ -24,6 +24,9 @@ container:
     requests:
       cpu: 100m
       memory: 100Mi
+    limits:
+      cpu: 100m
+      memory: 100Mi
   securityContext:
     allowPrivilegeEscalation: false
     readOnlyRootFilesystem: true
@@ -32,3 +35,4 @@ container:
     capabilities:
       drop:
         - ALL
+
