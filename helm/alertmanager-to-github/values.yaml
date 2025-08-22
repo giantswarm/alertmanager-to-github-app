@@ -7,7 +7,7 @@
 #
 image:
   repository: "giantswarm/alertmanager-to-github"
-  tag: "v0.2.2"
+  tag: "v0.2.3"
   registry: "gsoci.azurecr.io"
 env:
   ATG_GITHUB_TOKEN: ""
