@@ -21,3 +21,8 @@ workflows:
         app_collection_repo: vsphere-app-collection
         requires:
         - push-to-app-catalog
+        filters:
+          branches:
+            ignore: /.*/
+          tags:
+            only: /^v.*/
