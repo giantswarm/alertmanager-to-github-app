@@ -7,6 +7,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
-- changed: `app.giantswarm.io` label group was changed to `application.giantswarm.io`
+### Changed
+
+- `app.giantswarm.io` label group was changed to `application.giantswarm.io`
+
+### Added
+ 
+- Pushed the app into the app collections
 
 [Unreleased]: https://github.com/giantswarm/alertmanager-to-github/tree/main
