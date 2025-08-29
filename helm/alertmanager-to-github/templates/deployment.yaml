@@ -1,3 +1,4 @@
+{{- if and .Values.env.ATG_GITHUB_APP_ID .Values.env.ATG_GITHUB_APP_INSTALLATION_ID .Values.env.ATG_GITHUB_APP_PRIVATE_KEY -}}
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -40,3 +41,4 @@ spec:
             {{- toYaml .Values.container.resources | nindent 12 }}
           securityContext:
             {{- toYaml .Values.container.securityContext | nindent 12 }}
+{{- end -}}
