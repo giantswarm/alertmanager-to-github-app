@@ -5,7 +5,7 @@ description: Github integration for Alertmanager
 home: https://github.com/giantswarm/alertmanager-to-github-app
 icon: https://s.giantswarm.io/app-icons/giantswarm/1/light.svg
 sources:
-- https://github.com/pfnet-research/alertmanager-to-github
+  - https://github.com/pfnet-research/alertmanager-to-github
 version: 0.1.0
 annotations:
   application.giantswarm.io/team: atlas
