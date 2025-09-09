@@ -5,6 +5,7 @@
 #
 #   https://docs.giantswarm.io/tutorials/fleet-management/app-platform/app-configuration/#basic-values-merging-example
 #
+enabled: true
 image:
   repository: "giantswarm/alertmanager-to-github"
   tag: "v0.2.3"

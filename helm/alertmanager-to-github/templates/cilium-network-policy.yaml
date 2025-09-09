@@ -1,4 +1,4 @@
-{{- if and .Values.env.ATG_GITHUB_APP_ID .Values.env.ATG_GITHUB_APP_INSTALLATION_ID .Values.env.ATG_GITHUB_APP_PRIVATE_KEY -}}
+{{- if .Values.enabled -}}
 apiVersion: "cilium.io/v2"
 kind: CiliumNetworkPolicy
 metadata:
