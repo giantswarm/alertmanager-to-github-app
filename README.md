@@ -27,6 +27,11 @@ This app automatically creates and manages GitHub issues based on Prometheus ale
 
 ## GitHub App Setup
 
+As per [github documentation](https://docs.github.com/en/apps/creating-github-apps/about-creating-github-apps/about-creating-github-apps):
+> A GitHub App is a type of integration that you can build to interact with and extend the functionality of GitHub. 
+
+You need to create such an integration so that alertmanager-to-github can communicate to github.
+
 ### 1. Create GitHub App
 
 In your GitHub organization:
