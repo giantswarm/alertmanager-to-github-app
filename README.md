@@ -131,10 +131,6 @@ receivers:
 
 Install this app using Giant Swarm's App Platform:
 
-### Using GitOps
-
-Add to your GitOps repository:
-
 ```yaml
 apiVersion: application.giantswarm.io/v1alpha1
 kind: App
@@ -145,7 +141,7 @@ spec:
   catalog: control-plane-catalog
   name: alertmanager-to-github-app
   namespace: monitoring
-  version: "1.2.0"
+  version: "0.1.1"
   config:
     configMap:
       name: alertmanager-to-github-config
@@ -155,35 +151,6 @@ spec:
       name: alertmanager-to-github-secrets
       namespace: monitoring
 ```
-
-### Using kubectl
-
-Create the App resource directly:
-
-```bash
-kubectl apply -f - <<EOF
-apiVersion: application.giantswarm.io/v1alpha1
-kind: App
-metadata:
-  name: alertmanager-to-github
-  namespace: monitoring
-spec:
-  catalog: control-plane-catalog
-  name: alertmanager-to-github-app
-  namespace: monitoring
-  version: "1.2.0"
-  config:
-    configMap:
-      name: alertmanager-to-github-config
-      namespace: monitoring
-  userConfig:
-    secret:
-      name: alertmanager-to-github-secrets
-      namespace: monitoring
-EOF
-```
-
-## Configuration
 
 ### ConfigMap
 
@@ -194,58 +161,8 @@ metadata:
   name: alertmanager-to-github-config
   namespace: monitoring
 data:
-  config.yaml: |
-    # GitHub repository for issues (required)
-    repository: "myorg/alerts"
-
-    # Issue template configuration
-    template:
-      title: "🚨 {{ .GroupLabels.alertname }}: {{ .GroupLabels.cluster_id | default \"unknown\" }}"
-      body: |
-        ## Alert Information
-
-        | Field | Value |
-        |-------|--------|
-        | **Alert** | {{ .GroupLabels.alertname }} |
-        | **Cluster** | {{ .GroupLabels.cluster_id | default "N/A" }} |
-        | **Team** | {{ .GroupLabels.team | default "Unknown" }} |
-        | **Component** | {{ .GroupLabels.component | default "N/A" }} |
-        | **Severity** | {{ .GroupLabels.severity }} |
-
-        ## Alert Details
-
-        {{ range .Alerts }}
-        ### {{ .Annotations.summary | default "No summary available" }}
-
-        {{ .Annotations.description | default "No description available" }}
-
-        {{- if .Annotations.runbook_url }}
-        **📖 Runbook**: {{ .Annotations.runbook_url }}
-        {{- end }}
-
-        **⏰ Started**: {{ .StartsAt.Format "2006-01-02 15:04:05 UTC" }}
-        {{- if .EndsAt }}
-        **✅ Ended**: {{ .EndsAt.Format "2006-01-02 15:04:05 UTC" }}
-        {{- end }}
-
-        ---
-        {{ end }}
-
-        *This issue was automatically created by the alerting system.*
-
-    # Webhook authentication (optional but recommended)
-    auth:
-      username: "webhook"
-      password: "webhook-secret"
-
-    # Logging configuration
-    log:
-      level: "info"
-      format: "json"
-
-    # Server configuration
-    server:
-      port: 8080
+  values: |
+    enabled: true
 ```
 
 ### Secrets
@@ -258,54 +175,11 @@ metadata:
   namespace: monitoring
 type: Opaque
 stringData:
-  github-app-id: "YOUR_GITHUB_APP_ID"
-  github-installation-id: "YOUR_INSTALLATION_ID"
-  github-private-key: |
-    [Your GitHub App Private Key Content - paste the entire content from your downloaded .pem file here]
-  webhook-password: "YOUR_SECURE_WEBHOOK_PASSWORD"
-```
-
-### values.yaml
-
-For Helm-based configuration:
-
-```yaml
-# GitHub configuration
-github:
-  appId: "YOUR_GITHUB_APP_ID"
-  installationId: "YOUR_INSTALLATION_ID"
-  repository: "your-org/your-repo"
-
-# Issue template customization
-template:
-  title: "🚨 {{ .GroupLabels.alertname }}: {{ .GroupLabels.cluster_id | default \"unknown\" }}"
-  body: |
-    ## Alert: {{ .GroupLabels.alertname }}
-
-    {{ range .Alerts }}
-    **Summary**: {{ .Annotations.summary }}
-    **Description**: {{ .Annotations.description }}
-    {{ end }}
-
-# Webhook authentication
-webhook:
-  auth:
-    enabled: true
-    username: "webhook"
-
-# Logging
-logging:
-  level: "info"
-  format: "json"
-
-# Resources
-resources:
-  limits:
-    cpu: 100m
-    memory: 128Mi
-  requests:
-    cpu: 50m
-    memory: 64Mi
+  env:
+    ATG_GITHUB_APP_ID: "YOUR_GITHUB_APP_ID"
+    ATG_GITHUB_APP_INSTALLATION_ID: "YOUR_INSTALLATION_ID"
+    ATG_GITHUB_APP_PRIVATE_KEY: |
+       [Your GitHub App Private Key Content - paste the entire content from your downloaded .pem file here]
 ```
 
 ## Template Customization
