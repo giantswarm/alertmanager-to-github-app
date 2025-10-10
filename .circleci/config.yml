@@ -12,3 +12,10 @@ workflows:
         app_catalog: giantswarm-catalog
         app_catalog_test: giantswarm-test-catalog
         chart: alertmanager-to-github
+        filters:
+          tags:
+            only: /^v.*/
+          branches:
+            ignore:
+            - main
+            - master
