@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.1.2] - 2025-10-10
+
 ### Fixed
 
 - Fix circle ci config to be able to create a chart on tags.
@@ -27,6 +29,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
  
 - Pushed the app into the app collections
 
-[Unreleased]: https://github.com/giantswarm/alertmanager-to-github-app/compare/v0.1.1...HEAD
+[Unreleased]: https://github.com/giantswarm/alertmanager-to-github-app/compare/v0.1.2...HEAD
+[0.1.2]: https://github.com/giantswarm/alertmanager-to-github-app/compare/v0.1.1...v0.1.2
 [0.1.1]: https://github.com/giantswarm/alertmanager-to-github-app/compare/v0.1.0...v0.1.1
 [0.1.0]: https://github.com/giantswarm/alertmanager-to-github-app/releases/tag/v0.1.0
