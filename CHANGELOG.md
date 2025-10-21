@@ -9,6 +9,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [0.1.3] - 2025-10-21
 
+### Changed
+
+- Update the app to 0.2.4 which removes some Gin framework warnings
+
 ## [0.1.2] - 2025-10-10
 
 ### Fixed
