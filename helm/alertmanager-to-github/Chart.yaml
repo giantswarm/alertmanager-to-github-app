@@ -1,5 +1,5 @@
 apiVersion: v2
-appVersion: 0.2.3
+appVersion: 0.2.4
 name: alertmanager-to-github
 description: Github integration for Alertmanager
 home: https://github.com/giantswarm/alertmanager-to-github-app
