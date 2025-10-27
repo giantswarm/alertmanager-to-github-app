@@ -12,7 +12,25 @@ spec:
       {{- include "labels.selector" . | nindent 6 }}
   egress:
     - toEntities:
-      - world # Allow access to cloud
+      - world # Allow access to github
+    # Allow access to CoreDNS
+    - toEndpoints:
+      - matchLabels:
+          io.kubernetes.pod.namespace: kube-system
+          k8s-app: coredns
+      - matchLabels:
+          io.kubernetes.pod.namespace: kube-system
+          k8s-app: k8s-dns-node-cache
+      toPorts:
+      - ports:
+        - port: "1053"
+          protocol: UDP
+        - port: "1053"
+          protocol: TCP
+        - port: "53"
+          protocol: UDP
+        - port: "53"
+          protocol: TCP
   ingress:
     - fromEntities:
         - cluster
