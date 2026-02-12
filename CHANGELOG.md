@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.2.1] - 2026-02-12
+
 ### Changed
 
 - Update the app to 0.2.5
@@ -52,7 +54,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
  
 - Pushed the app into the app collections
 
-[Unreleased]: https://github.com/giantswarm/alertmanager-to-github-app/compare/v0.2.0...HEAD
+[Unreleased]: https://github.com/giantswarm/alertmanager-to-github-app/compare/v0.2.1...HEAD
+[0.2.1]: https://github.com/giantswarm/alertmanager-to-github-app/compare/v0.2.0...v0.2.1
 [0.2.0]: https://github.com/giantswarm/alertmanager-to-github-app/compare/v0.1.4...v0.2.0
 [0.1.4]: https://github.com/giantswarm/alertmanager-to-github-app/compare/v0.1.3...v0.1.4
 [0.1.3]: https://github.com/giantswarm/alertmanager-to-github-app/compare/v0.1.2...v0.1.3
