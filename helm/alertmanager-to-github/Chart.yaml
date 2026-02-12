@@ -1,5 +1,5 @@
 apiVersion: v2
-appVersion: 0.2.5
+appVersion: v0.2.5
 name: alertmanager-to-github
 description: Github integration for Alertmanager
 home: https://github.com/giantswarm/alertmanager-to-github-app
@@ -8,5 +8,4 @@ sources:
   - https://github.com/pfnet-research/alertmanager-to-github
 version: 0.2.0
 annotations:
-  application.giantswarm.io/team: atlas
-  config.giantswarm.io/version: 1.x.x
+  io.giantswarm.application.team: atlas

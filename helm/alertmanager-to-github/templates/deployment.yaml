@@ -20,7 +20,7 @@ spec:
         {{- toYaml .Values.pod.securityContext | nindent 8 }}
       containers:
         - name: {{ include "name" . }}
-          image: "{{ .Values.image.registry }}/{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+          image: "{{ .Values.image.registry }}/{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
           args:
           - start
           - --listen
