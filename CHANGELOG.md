@@ -14,6 +14,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Changed
 
 - Fix ABS config to not override AppVersion in Chart.yaml
+- Update architect to v10.18.0 (giantswarm/alertmanager-to-github-app#136)
 
 ## [0.2.1] - 2026-02-12
 
